@@ -1,0 +1,564 @@
+/* KIRA Design System — BeautySync Pro */
+/* Accent Colors: Coral & Amber for beauty/salon warmth */
+:root {
+  /* Background */
+  --kira-bg: #0b0b0f;
+  --kira-surface: rgba(255, 255, 255, 0.03);
+  --kira-surface-hover: rgba(255, 255, 255, 0.06);
+  
+  /* Accent Colors - Beauty/Salon Theme */
+  --kira-coral: #f07a6a;
+  --kira-amber: #f5c87a;
+  --kira-accent: var(--kira-coral);
+  --kira-accent-secondary: var(--kira-amber);
+  
+  /* Text */
+  --kira-text-primary: rgba(245, 240, 250, 0.92);
+  --kira-text-secondary: rgba(245, 240, 250, 0.45);
+  --kira-text-hint: rgba(245, 240, 250, 0.2);
+  
+  /* Border */
+  --kira-border: rgba(240, 122, 106, 0.18);
+  --kira-border-focus: rgba(240, 122, 106, 0.45);
+  
+  /* Spacing */
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 40px;
+}
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400&display=swap');
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+  background: var(--kira-bg);
+  color: var(--kira-text-primary);
+  font-size: 15px;
+  line-height: 1.65;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Typography */
+.brand-title {
+  font-family: 'Cormorant Garamond', 'Noto Serif JP', Georgia, serif;
+  font-size: 48px;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--kira-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.brand-subtitle {
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--kira-text-secondary);
+  margin-bottom: var(--space-sm);
+  line-height: 1.7;
+}
+
+.brand-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--kira-accent);
+  opacity: 0.7;
+}
+
+.nav-meta, .section-meta {
+  font-family: 'Space Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--kira-accent);
+  opacity: 0.7;
+  margin-bottom: var(--space-md);
+}
+
+/* Background Glows */
+.glow-top {
+  position: fixed;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(ellipse, rgba(240, 122, 106, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.glow-bottom {
+  position: fixed;
+  bottom: -120px;
+  right: -200px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(245, 200, 122, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* App Layout */
+.app {
+  position: relative;
+  min-height: 100vh;
+  padding: var(--space-2xl);
+}
+
+/* Header */
+.app-header {
+  margin-bottom: var(--space-2xl);
+  animation: fadeInUp 0.6s ease both;
+}
+
+.header-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-lg);
+}
+
+.brand {
+  flex: 1;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-shrink: 0;
+}
+
+/* Navigation */
+.app-nav {
+  margin-bottom: var(--space-2xl);
+  animation: fadeInUp 0.6s ease 0.15s both;
+}
+
+.nav-content {
+  background: rgba(240, 122, 106, 0.04);
+  border: 0.5px solid var(--kira-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+.nav-buttons {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  background: rgba(240, 122, 106, 0.1);
+  border: 0.5px solid rgba(240, 122, 106, 0.2);
+  border-radius: var(--radius-pill);
+  color: var(--kira-text-secondary);
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-button:hover {
+  background: rgba(240, 122, 106, 0.15);
+  border-color: rgba(240, 122, 106, 0.4);
+  transform: translateY(-1px);
+}
+
+.nav-button.active {
+  background: rgba(240, 122, 106, 0.18);
+  border-color: var(--kira-border-focus);
+  color: var(--kira-accent);
+}
+
+.nav-button .icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Main Content */
+.app-main {
+  animation: fadeInUp 0.6s ease 0.3s both;
+}
+
+/* Pill Buttons */
+.pill-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 10px 28px;
+  background: rgba(240, 122, 106, 0.1);
+  border: 0.5px solid rgba(240, 122, 106, 0.35);
+  border-radius: var(--radius-pill);
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--kira-accent);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.pill-button:hover {
+  background: rgba(240, 122, 106, 0.18);
+  border-color: rgba(240, 122, 106, 0.6);
+  transform: translateY(-1px);
+}
+
+.pill-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.pill-button.primary {
+  background: var(--kira-accent);
+  color: var(--kira-bg);
+  border-color: var(--kira-accent);
+}
+
+.pill-button.upgrade {
+  background: linear-gradient(45deg, var(--kira-coral), var(--kira-amber));
+  color: var(--kira-bg);
+  border: none;
+  font-weight: 700;
+}
+
+.pill-button .icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(240, 122, 106, 0.06);
+  border: 0.5px solid rgba(240, 122, 106, 0.15);
+  border-radius: var(--radius-pill);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: rgba(240, 122, 106, 0.5);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.status-badge.pro {
+  background: linear-gradient(45deg, rgba(240, 122, 106, 0.1), rgba(245, 200, 122, 0.1));
+  border-color: var(--kira-border-focus);
+  color: var(--kira-accent);
+}
+
+.status-badge .icon {
+  width: 12px;
+  height: 12px;
+}
+
+/* Cards */
+.card {
+  position: relative;
+  background: rgba(240, 122, 106, 0.04);
+  border: 0.5px solid var(--kira-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  transition: border-color 0.3s, background 0.3s;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--kira-coral), var(--kira-amber));
+  opacity: 0.4;
+}
+
+.card:hover {
+  border-color: var(--kira-border-focus);
+  background: rgba(240, 122, 106, 0.06);
+}
+
+/* Fixed Widgets */
+.fixed-widgets {
+  position: fixed;
+  bottom: var(--space-lg);
+  right: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  z-index: 100;
+}
+
+.widget-button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(240, 122, 106, 0.08);
+  border: 0.5px solid var(--kira-border);
+  border-radius: var(--radius-pill);
+  color: var(--kira-text-secondary);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  backdrop-filter: blur(8px);
+}
+
+.widget-button:hover {
+  background: rgba(240, 122, 106, 0.12);
+  border-color: var(--kira-border-focus);
+  color: var(--kira-accent);
+  transform: translateY(-1px);
+}
+
+.widget-button .icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(11, 11, 15, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background: var(--kira-bg);
+  border: 0.5px solid var(--kira-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  animation: fadeInUp 0.4s ease;
+}
+
+.modal-content h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--kira-text-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.modal-content textarea {
+  width: 100%;
+  padding: var(--space-md);
+  background: var(--kira-surface);
+  border: 0.5px solid var(--kira-border);
+  border-radius: var(--radius-sm);
+  color: var(--kira-text-primary);
+  font-family: inherit;
+  font-size: 15px;
+  resize: vertical;
+  margin-bottom: var(--space-lg);
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.modal-content textarea:focus {
+  outline: none;
+  border-color: var(--kira-border-focus);
+  background: var(--kira-surface-hover);
+}
+
+.modal-content textarea::placeholder {
+  color: var(--kira-text-hint);
+}
+
+.modal-actions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: flex-end;
+}
+
+/* Loading Screen */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--kira-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loading-content {
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid rgba(240, 122, 106, 0.2);
+  border-top: 2px solid var(--kira-accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto var(--space-md);
+}
+
+.loading-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--kira-text-secondary);
+}
+
+/* Dividers */
+.divider {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, transparent, rgba(240, 122, 106, 0.25), transparent);
+  margin: 0 auto;
+}
+
+/* Icons */
+.icon {
+  flex-shrink: 0;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app {
+    padding: var(--space-lg);
+  }
+  
+  .brand-title {
+    font-size: 32px;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  
+  .header-actions {
+    align-self: stretch;
+    justify-content: space-between;
+  }
+  
+  .nav-buttons {
+    flex-direction: column;
+  }
+  
+  .nav-button {
+    justify-content: flex-start;
+  }
+  
+  .fixed-widgets {
+    bottom: var(--space-md);
+    right: var(--space-md);
+  }
+  
+  .modal-content {
+    padding: var(--space-lg);
+    margin: var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-title {
+    font-size: 24px;
+  }
+  
+  .pill-button {
+    padding: 8px 20px;
+    font-size: 10px;
+  }
+  
+  .nav-button {
+    padding: 10px var(--space-md);
+    font-size: 10px;
+  }
+}
